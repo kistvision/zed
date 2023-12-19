@@ -1,5 +1,8 @@
 # zed
 
+## ZED SDK 설치
+[link](https://www.stereolabs.com/developers/release)에서 ZED SDK를 설치합니다. 이 코드는 ZED SDK 4.0에서 동작합니다. SDK 설치 후 재부팅합니다.
+
 ## 패키지 설명
 ZED 카메라를 활용하기 위한 패키지입니다. zed.py의 ZEDCamera() 클래스에 카메라 SDK를 활용해 편리하게 기능을 사용할 수 있도록 함수들을 정의했습니다. 필요한 함수는 이 클래스의 함수를 호출해서 쓰시고, 그 외 필요한 함수는 공식 사이트 문서를 참고하세요.
 `zed.py`를 실행하면 연결된 카메라 영상을 확인할 수 있습니다.
