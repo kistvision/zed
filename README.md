@@ -1,5 +1,22 @@
 # zed
 
+## Jetpack 설치할때 참고
+[link](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#prepare)
+
+## SDK 다운로드 링크
+[link](https://developer.nvidia.com/embedded/jetpack) 에서 "SD Card Image Method" 다운로드 후 Etcher를 이용해 Micro SD카드 플래쉬
+
+## 정상 동작 확인된 버전
+Jetpack 버전 확인 하는 방법:
+
+$ sudo apt-cache show nvidia-jetpack
+
+정상 동작 확인된 버전:
+
+$ Package: nvidia-jetpack
+$ Version: 5.1.1-b56
+
+
 ## ZED SDK 설치
 [link](https://www.stereolabs.com/developers/release)에서 ZED SDK를 설치합니다. 이 코드는 ZED SDK 4.0에서 동작합니다. SDK 설치 후 재부팅합니다.
 
@@ -35,3 +52,12 @@ Exposure 0, gain 50정도로 설정했을 때 적절한 영상을 얻을 수 있
     $ python POSCO_make_video.py
 
 비디오 저장 예제가 두개인 이유: resize, concat에 시간이 오래 걸려 실시간으로 비디오를 저장할 수 없습니다. 따로 저장 후 make_video.py에서 두 비디오를 resize, concat하여 스테레오 비디오로 저장합니다.
+
+
+## 3층 실험실 현관 비밀번호
+9587399
+
+## 3층 노트북 비밀번호
+posco2023
+
+

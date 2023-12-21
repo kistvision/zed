@@ -23,11 +23,10 @@ if __name__ == "__main__":
     for i in tqdm(range(10)):
         for j in range(10):
             # time.sleep(0.1)
-            left, right = cam.get_image()
             cam.set_camera_setting(cam.EXPOSURE, int(i*10))
             cam.set_camera_setting(cam.GAIN, int(j*10))
-
             time.sleep(0.2)
+            left, right = cam.get_image()
 
             exposure = cam.cam.get_camera_settings(cam.EXPOSURE)
             gain = cam.cam.get_camera_settings(cam.GAIN)

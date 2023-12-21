@@ -8,7 +8,7 @@ import time
 from collections import deque
 import json
 
-save_dir = '/home/vision/zed_stereo_video/'
+save_dir = '/home/vision/test/'
     
 if __name__ == "__main__":
     with open('{0}/video_info.json'.format(save_dir), 'r') as info:

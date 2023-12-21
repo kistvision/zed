@@ -1,4 +1,5 @@
 import zed
+import sys
 import cv2
 import os
 import numpy as np
@@ -16,13 +17,13 @@ def memory_usage(message: str = 'debug'):
     rss = p.memory_info().rss / 2 ** 20 # Bytes to MB
     print(f"[{message}] memory usage: {rss: 10.5f} MB")
 
-save_dir = '/home/vision/zed_stereo_video/mini'
+save_dir = '/home/vision/test'
 if not os.path.exists('{0}'.format(save_dir)):
     os.mkdir(save_dir)
     
 if __name__ == "__main__":
     FPS = 10
-    video_length = 60.      # seconds
+    video_length = 7.      # seconds
     # 3D projector
     # vw_left = cv2.VideoWriter('{0}/video_left.mp4'.format(save_dir), cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), FPS, (1920, 1080))
     # vw_right = cv2.VideoWriter('{0}/video_right.mp4'.format(save_dir), cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), FPS, (1920, 1080))
@@ -34,9 +35,16 @@ if __name__ == "__main__":
     # vw_right = cv2.VideoWriter('{0}/video_right.avi'.format(save_dir), cv2.VideoWriter_fourcc('i','y','u','v'), FPS, (1280, 720))
     # vw_left = cv2.VideoWriter('{0}/video_left.mp4'.format(save_dir), cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), FPS, (1280, 720))
     # vw_right = cv2.VideoWriter('{0}/video_right.mp4'.format(save_dir), cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), FPS, (1280, 720))
-    cam = zed.ZEDCamera(model='mini', resolution='720')
-    cam.set_camera_setting(cam.EXPOSURE, 0)
-    cam.set_camera_setting(cam.GAIN, 50)
+    args = sys.argv
+    if len(args) != 2 or args[1] not in ['mini', '2i']:
+        print("Usage: python POSCO_get_image.py mini (or 2i)")
+        exit(0)
+    cam_model = args[1] # cam_model: 2i or mini
+    cam = zed.ZEDCamera(model=cam_model, resolution='720')
+    # cam.set_camera_setting(cam.EXPOSURE, 0)
+    # cam.set_camera_setting(cam.GAIN, 50)
+    cam.set_camera_setting(cam.EXPOSURE, -1)
+    cam.set_camera_setting(cam.GAIN, -1)
     time.sleep(1.0)
 
     start = time.time()
